@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>sheetCalc.js Example Page</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" ></script>
+    <script src="../dist/sheetCalc.standalone.js"></script>
+    <script src="sheetCalc.gen.js"></script>
+    <script src="example.js"></script>
+  </head>
+  <body>
+    <h3>Example Calculation</h3>
+    <table>
+      <tr>
+        <td>Inputs</td><td>Outputs</td>
+      </tr><tr>
+        <td>
+          <input id=a2 /><br />
+          <input id=a3 /><br />
+          <input id=a4 /><br />
+          <input id=a5 /><br />
+          <input id=a6 /><br />
+          <input id=a7 /><br />
+          <input id=a8 /><br />
+          <input id=a9 /><br />
+          <input id=a10 /><br />
+          <input id=a11 /><br />
+          <input id=a12 /><br />
+          <input id=a13 /><br />
+          <button id=calc >Calculate</button>
+        </td>
+        <td>
+          <dl>
+            <dt>Sum</dt><dd id="sum"></dd>
+            <dt>Avg</dt><dd id="avg"></dd>
+            <dt>StDev</dt><dd id="stdev"></dd>
+            <dt>Max</dt><dd id="max"></dd>
+            <dt>Min</dt><dd id="min"></dd>
+          </dl>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
