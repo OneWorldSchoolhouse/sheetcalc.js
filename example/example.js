@@ -29,5 +29,18 @@ $(document).ready(function(){
 
   });
 
+  $("#newCalc").click(function(){
+    var guess = parseFloat( $("#newGuess").val());
+    var newGuess = null;
+    var delta = 1;
+    while(delta < 24){
+      Sheet2.A2.value(guess);
+      newGuess = Sheet2.A3.value();
+      delta++;
+      guess = newGuess;
+    }
+    $("#newResult").text(guess);
+  });
+
 
 });

@@ -22,3 +22,12 @@ Sheet1['A10'] = new Cell(3);
 Sheet1['A11'] = new Cell(1.4);
 Sheet1['A12'] = new Cell(0.6);
 Sheet1['A13'] = new Cell(1.6);
+
+var Sheet2 = {};
+Sheet2['A1'] = new Cell("Input");
+Sheet2['B1'] = new Cell("Equ");
+Sheet2['C1'] = new Cell("Equ`");
+Sheet2['A2'] = new Cell(1);
+Sheet2['B2'] = new Cell(function(){return (Math.pow(Sheet2.A2.value(),6) - Math.pow(Sheet2.A2.value(),5) - 6*Math.pow(Sheet2.A2.value(),4) - Math.pow(Sheet2.A2.value(),2) + Sheet2.A2.value()+10);});
+Sheet2['C2'] = new Cell(function(){return (6*Math.pow(Sheet2.A2.value(),5) - 5*Math.pow(Sheet2.A2.value(),4) - 24*Math.pow(Sheet2.A2.value(),3) - 2*Sheet2.A2.value() + 1);});
+Sheet2['A3'] = new Cell(function(){return (Sheet2.A2.value()-Sheet2.B2.value()/Sheet2.C2.value());});
