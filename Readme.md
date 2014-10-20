@@ -1,20 +1,22 @@
 sheetCalc.js
 ================================================
 
-sheetCalc.js is a calculation library for javascript that allows you to leave all of your math calculations in excel.
+sheetCalc.js is a calculation library for JavaScript that allows you to leave all of your math calculations in excel.
+
+**Note: This repository is just the run time dependecies!**
 
 What & Why?
 ----------------------------------------
-Writing Math in javascript is not fun. It is much easier to write & test math expressions in excel. So we convert them.
-We use formula.js to convert all of the excel functions to javascript equivalents.
+Writing Math in JavaScript is not fun. It is much easier to write & test math expressions in excel. So we convert them.
+We use formula.js to convert all of the excel functions to JavaScript equivalents.
 
-**This library doesn't have the excel to js conversions. This just the run time libraries!!!**
+**Note: This library doesn't have the Excel to JavaScript conversions. This just the run time libraries!!!**
 
 
 
 Installation
 ------------------------------
-Add the following to your html file
+Add the following to your HTML file
 
 `<script src="path/sheetCalc.standalone.js"></script>`
 
@@ -25,8 +27,17 @@ How to use
 ---------------------------------
 Check out the example folder for two examples on how to use this library and for the excel sheet it was generated from.
 
+Building
+----------------------------------------
+1. Install [node.js](http://nodejs.org/)
+2. Install grunt `npm install grunt -g`
+3. Build with grunt
+  * Normal: `grunt`
+  * Standalone: `grunt standalone`
+  * Development: `grunt dev`
+
 License
 -------------------------------------------
 This code is distributed under the MIT License. Se License file for more details
 
-Copywrite (c) 2014, One World Schoolhouse, University of Toledo
+Copyright (c) 2014, One World Schoolhouse, University of Toledo

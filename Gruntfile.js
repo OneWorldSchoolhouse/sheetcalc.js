@@ -63,6 +63,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['clean', 'jshint','concat:build', 'uglify:build']);
-  grunt.registerTask('standalone', ['default', 'concat:dist', 'uglify:dist', 'watch']);
+  grunt.registerTask('standalone', ['default', 'concat:dist', 'uglify:dist');
+  grunt.registerTask('dev', ['default', 'standalone', 'watch']);
 
 };
