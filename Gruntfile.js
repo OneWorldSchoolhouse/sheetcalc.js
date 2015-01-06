@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     clean: ["dist/**/*.js"],
 
     jshint: {
-      all: ['Gruntfile.js', 'src/**/*.js'], //, 'example/**/*.js']
+      all: ['Gruntfile.js', 'src/**/*.js'],
     },
 
     uglify: {
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['clean', 'jshint','concat:build', 'uglify:build']);
-  grunt.registerTask('standalone', ['default', 'concat:dist', 'uglify:dist');
+  grunt.registerTask('standalone', ['default', 'concat:dist', 'uglify:dist']);
   grunt.registerTask('dev', ['default', 'standalone', 'watch']);
 
 };
