@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var banner = '/*! <%= pkg.name %> <%= pkg.version %> | (c) <%= grunt.template.today("yyyy") %>, One World Schoolhouse, University of Toledo | The MIT License (MIT) */\n';
 
   // Project configuration.
   grunt.initConfig({
@@ -13,7 +14,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: banner
       },
       build: {
         src: 'dist/<%= pkg.name %>.js',

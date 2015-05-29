@@ -1,37 +1,60 @@
-(function(sheetCalc) {
-  sheetCalc.Cell = function (val)
-  {
-    this.hasFormula = false;
-    this.isNumber = false;
-    this.set(val);
-    return this;
-  };
-
-  sheetCalc.Cell.prototype.value = function(val){
-    if( arguments.length > 0){
-      //return this.set(val);
-      this.set(val);
-    }else{
-      return this.get();
-    }
-  };
-
-  sheetCalc.Cell.prototype.get = function(){
-    if(this.hasFormula){
-      return this.content();
-    } else {
-      return this.content;
-    }
-  };
-
-  sheetCalc.Cell.prototype.set = function(val){
-    this.hasFormula = typeof(val) == 'function' ? true : false;
-    var parsed = parseFloat(val);
-    if(!isNaN(parsed))
-      this.content = parsed;
-    else
-      this.content = val;
-
-  };
-
-}( window.sheetCalc = window.sheetCalc || {}));
+/*! sheetCalc | (c) 2015, One World Schoolhouse, University of Toledo | The MIT License (MIT) */
+var sheetCalc;
+(function (sheetCalc) {
+    var Cell = (function () {
+        function Cell(value) {
+            this.HasFormula = false;
+            this.Set(value);
+            return this;
+        }
+        Cell.prototype.Value = function (value) {
+            if (arguments.length > 0) {
+                this.Set(value);
+            }
+            return this.Get();
+        };
+        Cell.prototype.Get = function () {
+            if (this.HasFormula) {
+                return this.Content();
+            }
+            else {
+                return this.Content;
+            }
+        };
+        Cell.prototype.Set = function (value) {
+            this.HasFormula = typeof (value) === 'function' ? true : false;
+            var parsed = parseFloat(value);
+            if (!isNaN(parsed)) {
+                this.Content = parsed;
+            }
+            else {
+                this.Content = value;
+            }
+            return this;
+        };
+        return Cell;
+    })();
+    sheetCalc.Cell = Cell;
+    var WorkSheet = (function () {
+        function WorkSheet() {
+        }
+        WorkSheet.Create = function () {
+            var f = function () { };
+            f.prototype.Cells = WorkSheet.Cells;
+            return f;
+        };
+        WorkSheet.Cells = function (row, col) {
+            var dividend = col;
+            var columnName = "";
+            var modulo;
+            while (dividend > 0) {
+                modulo = (dividend - 1) % 26;
+                columnName = String.fromCharCode(65 + modulo) + columnName;
+                dividend = Math.floor((dividend - modulo) / 26);
+            }
+            return this[columnName + row];
+        };
+        return WorkSheet;
+    })();
+    sheetCalc.WorkSheet = WorkSheet;
+})(sheetCalc || (sheetCalc = {}));
