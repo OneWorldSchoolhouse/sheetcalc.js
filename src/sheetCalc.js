@@ -52,7 +52,12 @@ var sheetCalc;
                 columnName = String.fromCharCode(65 + modulo) + columnName;
                 dividend = Math.floor((dividend - modulo) / 26);
             }
-            return this[columnName + row];
+            if (typeof this[columnName + row] !== "undefined") {
+                return this[columnName + row];
+            }
+            else {
+                return new Cell(undefined);
+            }
         };
         return WorkSheet;
     })();
